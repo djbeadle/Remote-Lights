@@ -14,16 +14,12 @@ Does this have to be used to control LEDs? Nope, it could pretty easily be modif
 
 * [JSColor] - A fantastically simple JS color picker
 * [Tino's pyFirmata Library] - Tino's FIRMATA library for Python. Be sure to use the Python 3 specific branch
-* [Marked] - a super fast port of Markdown to JavaScript
-* [Twitter Bootstrap] - great UI boilerplate for modern web apps
-* [node.js] - evented I/O for the backend
-* [Express] - fast node.js network app framework [@tjholowaychuk]
-* [Gulp] - the streaming build system
-* [keymaster.js] - awesome keyboard handler lib by [@thomasfuchs]
+* [Matt Richardson's Flask Tutorial] - a great set of instructions on setting up Flask on the Raspberry Pi
 * [jQuery] - duh
+* [The Python Docs] - Man, those examples on socket servers are really useful.
 
 [JSColor]:http://jscolor.com
 [Tino's pyFirmata Library]:https://github.com/tino/pyFirmata/
-[The Python Docs]:http://daringfireball.net/projects/markdown/
-[Flask Tutorial]:https://github.com/chjj/marked
-
+[The Python Docs]:https://docs.python.org/3/library/socketserver.html
+[Matt Richardson's Flask Tutorial]:http://mattrichardson.com/Raspberry-Pi-Flask/
+[jQuery]:http://jquery.com
