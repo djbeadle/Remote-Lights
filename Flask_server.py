@@ -41,12 +41,33 @@ def home():
 @app.route('/lights', methods=['GET', 'POST'])
 def lights():
     global hexColor
+
     if request.method == 'POST':
-        hexColor = request.form['colorValue']
-        print(hexColor)
-        rgb = webcolors.hex_to_rgb("#" + hexColor)
-        r, g, b = rgb
         print("******************")
+
+        hexColorNew = request.form['colorValue'] # hexColorNew gets run through error checking first before being assigned to hexColor (Which gets carried over on reload)
+        print("Raw Hex Color: " + hexColorNew)
+
+        if len(hexColorNew) != 6: # Error checking in case the value isn't equal to 6 characters
+            difference = 6 - len(hexColorNew)
+
+            while difference > 0: # If it's less than 6 characters, fill the remainder with zeros 
+                hexColorNew = hexColorNew + "0"
+                difference = difference - 1
+
+            if difference < 0: # If it's more than 6 characters, cut it down to 6
+                hexColorNew = hexColorNew[:6]
+        print("Trimmed Hex Color: " + hexColorNew)
+        try:
+            rgb = webcolors.hex_to_rgb("#" + hexColorNew)
+        except:
+            print("ERROR: hexColorNew -> rgb failed!")
+            return render_template('colorpickertest.html', HTMLhexColor = hexColor)
+
+        # At this point we can be confident that hexColorNew is/has been converted to a valid color value
+        hexColor = hexColorNew #hexColor gets carried over on the page refresh, hexColorNew doesn't
+        print("Final Hex Color Value: " + hexColor)
+        r, g, b = rgb
         print(r)
         print(g)
         print(b)
@@ -66,9 +87,8 @@ def lights():
 
         print("Sent:     {}".format(hexColor))
         print("Received: {}".format(received))
-    return render_template('colorpicker.html', HTMLhexColor = hexColor)
+    return render_template('colorpickertest.html', HTMLhexColor = hexColor)
 
 # start the server with the 'run()' method
 if __name__=='__main__':
     app.run(host='0.0.0.0')
-
