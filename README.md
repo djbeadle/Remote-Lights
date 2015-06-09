@@ -4,11 +4,11 @@
 I needed a way to control my RGB LED strip over the internet without giving out my house's public IP address. 
 
 There are two servers in this implementation. The first runs flask\_server.py, is publicly accessible, and hosts (guess what!) a flask server. Anyone can access this serer, choose a color value, and hit the submit button. When they do, this server sends a message over TCP *(Try saying RGB LED TCP 10 times fast)* to the computer running, tcp\_server.py, which then converts the hex color value to pure RGB, and finally transmits that via USB _(RGB LED TCP USB!)_ to a connected Arduino (Which is running the FIRMATA protocol). 
-
+```
 *---------------*         *------------*                        *------------*       *---------*
 |User's Computer|  <--->  |Flask Server|  <---[Hamachi VPN]---> | TCP Server | <---> | Arduino | 
 *---------------*         *----------- *                        *------------*       *---------*
-
+```
 Does this have to be used to control LEDs? Nope, it could pretty easily be modified to send a command to rotate a servo or something, FIRMATA is cool like that. Heck, the Arduino portion could be removed entirely and you could just use this to send messages back and forth between two computers. 
 
 [Pictures of it in action](http://imgur.com/a/fIGjD)
