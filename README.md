@@ -7,6 +7,8 @@ There are two servers in this implementation. The first runs flask\_server.py, i
 
 Does this have to be used to control LEDs? Nope, it could pretty easily be modified to send a command to rotate a servo or something, FIRMATA is cool like that. Heck, the Arduino portion could be removed entirely and you could just use this to send messages back and forth between two computers. 
 
+[Pictures of it in action](http://imgur.com/a/fIGjD)
+
 ### Version
 1.0
 
