@@ -21,7 +21,7 @@ Does this have to be used to control LEDs? Nope, it could pretty easily be modif
 * [JSColor] - A fantastically simple JS color picker
 * [Tino's pyFirmata Library] - Tino's FIRMATA library for Python. Be sure to use the Python 3 specific branch
 * [Matt Richardson's Flask Tutorial] - a great set of instructions on setting up Flask on the Raspberry Pi
-* [jQuery] - duh
+* [jQuery]
 * [The Python Docs] - Man, those examples on socket servers are really useful.
 
 [JSColor]:http://jscolor.com
